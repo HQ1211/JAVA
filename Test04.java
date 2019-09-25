@@ -11,12 +11,12 @@ import java.util.Scanner;
 public class Test04 {
 
 	public static void main(String[] args) throws IOException{
-		File src=getDir();
-		File dest=getDir();
-		if(src.equals(dest)) {
+		File file1=getDir();
+		File file2=getDir();
+		if(src.equals(file2)) {
 			System.out.println("文件夹相同");
 		}else {
-			copy(src,dest);
+			copy(file1,file2);
 		}
 
 	}
@@ -28,7 +28,7 @@ public static File getDir() {
 		File dir=new File(line);
 		if(!dir.exists()) {
 			System.out.println("文件夹不存在，请重新输入：");
-		}else if(dir.isFile()){
+		}else if(file2.isFile()){
 			System.out.println("您输入的是文件路径，请输入文件夹路径");
 			
 		}else {
@@ -36,10 +36,10 @@ public static File getDir() {
 		}
 		}
 }
-public static void copy(File src,File dest)throws IOException{
-	File newDir=new File(dest,src.getName());
+public static void copy(File file1,File file2)throws IOException{
+	File newDir=new File(file2,file1.getName());
 	newDir.mkdir();
-	File[] subFiles=src.listFiles();
+	File[] subFiles=file1.listFiles();
 	for(File subFile:subFiles) {
 		if(subFile.isFile()) {
 		BufferedInputStream bis=new BufferedInputStream(new FileInputStream(subFile));
