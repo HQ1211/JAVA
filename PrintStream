@@ -1,0 +1,39 @@
+#PrintStream类(自动刷新)
+（1）不像其他的输出流，一个PrintStream从不抛出一个IOException异常；为了自动刷新，可以创建一个PrintStream意味着可在写入byte数组之后自动调用flush方法，可调用其中一个println方法，或写入一个换行符或字节（'\n'）;
+
+（2）所有的字符转换成字节PrintStream印刷使用平台的默认字符编码转换为字节。在需要写入字符而不是写入字节的情况下，应该使用PrintWriter类
+
+(3)
+
+PrintStream操作字节流
+
+PrintStream是OutputStream的子类
+
+常用的System.out变量就是PrintStream实例
+
+---
+eg.
+
+    import java.io.FileNotFoundException;
+    import java.io.PrintStream;
+
+    public class Test01 {
+
+	public static void main(String[] args) {
+		try {
+			PrintStream ps=new PrintStream("ccc");
+			ps.print(true);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+    }
+“ccc”中内容：true
+
+---
+
+## 构造方法摘要
+(1)PrintStream(OutputStream out):创建一个新的打印流
+
+(2)PrintStream(String  fileName)：创建一个具有指定的文件名称且不带自动行刷新的新打印流
