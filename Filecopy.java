@@ -8,7 +8,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Test04 {
+public class Filecopy {
 
 	public static void main(String[] args) throws IOException{
 		File file1=getDir();
